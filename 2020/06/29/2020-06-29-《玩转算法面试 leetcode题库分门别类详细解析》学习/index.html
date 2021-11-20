@@ -1,0 +1,582 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="这里是我的个人博客">
+  <meta name="author" content="某工程师">
+  <meta name="keywords" content="">
+  <meta name="description" content="学习记录 20200523 参考：《玩转算法面试 leetcode题库分门别类详细解析》 开篇比起“正确地”回到每一个问题，合理的思考方向更重要算法面试过程中，对于问题的细节和应用环境，可以和面试官沟通，以此反映出你逐步深入思考问题的过程，体现你思维全面与否、想得是否更深刻以及你的计算机素养如何。 “正确”本身是一个相对概念，包含了独到见解、优化、代码规范、容错性。 例子问：对一组数据进行排序答：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《玩转算法面试 leetcode题库分门别类详细解析》学习">
+<meta property="og:url" content="http://example.com/2020/06/29/2020-06-29-%E3%80%8A%E7%8E%A9%E8%BD%AC%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%20leetcode%E9%A2%98%E5%BA%93%E5%88%86%E9%97%A8%E5%88%AB%E7%B1%BB%E8%AF%A6%E7%BB%86%E8%A7%A3%E6%9E%90%E3%80%8B%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="ALOHA">
+<meta property="og:description" content="学习记录 20200523 参考：《玩转算法面试 leetcode题库分门别类详细解析》 开篇比起“正确地”回到每一个问题，合理的思考方向更重要算法面试过程中，对于问题的细节和应用环境，可以和面试官沟通，以此反映出你逐步深入思考问题的过程，体现你思维全面与否、想得是否更深刻以及你的计算机素养如何。 “正确”本身是一个相对概念，包含了独到见解、优化、代码规范、容错性。 例子问：对一组数据进行排序答：">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-11-20T20:31:45.216Z">
+<meta property="article:author" content="某工程师">
+<meta property="article:tag" content="leetcode">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>《玩转算法面试 leetcode题库分门别类详细解析》学习 - ALOHA</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"NulCS22MYqxU40Y1KyiQQk1B-gzGzoHsz","app_key":"U4AvRC9iuv688NfcP3WspcGE","server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ALOHA</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="《玩转算法面试 leetcode题库分门别类详细解析》学习">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-06-29 00:00" pubdate>
+        2020年6月29日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      4 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">《玩转算法面试 leetcode题库分门别类详细解析》学习</h1>
+            
+            <div class="markdown-body">
+              <p><strong>学习记录</strong></p>
+<p><em><strong>20200523</strong></em></p>
+<p>参考：《玩转算法面试 leetcode题库分门别类详细解析》</p>
+<h2 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h2><h3 id="比起“正确地”回到每一个问题，合理的思考方向更重要"><a href="#比起“正确地”回到每一个问题，合理的思考方向更重要" class="headerlink" title="比起“正确地”回到每一个问题，合理的思考方向更重要"></a>比起“正确地”回到每一个问题，合理的思考方向更重要</h3><p>算法面试过程中，对于问题的细节和应用环境，可以和面试官沟通，以此反映出你逐步深入思考问题的过程，体现你思维全面与否、想得是否更深刻以及你的计算机素养如何。 “正确”本身是一个相对概念，包含了独到见解、优化、代码规范、容错性。</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>问：对一组数据进行排序<br>答：快速排序算法O(nlogn)<br>改进1：数据有何具体特征？</p>
+<blockquote>
+<p>如有无可能包含大量重复的元素 —&gt; 如果有，那么<strong>三路快排</strong>是更好的选择。</p>
+</blockquote>
+<blockquote>
+<p>如有无可能大部分数据距离它正确的位置很近，是否近乎有序 —&gt; 如果有，那么插入排序是更好的选择。</p>
+</blockquote>
+<blockquote>
+<p>如有无可能数据的取值范围非常有限，例如对学生成绩排序 —&gt; 如果有，那么计数排序是更好的选择。</p>
+</blockquote>
+<blockquote>
+<p>是否许哟啊稳定排序 —&gt; 如果是，归并排序是更好的选择。</p>
+</blockquote>
+<p>改进2：数据的存储状况是怎么样的？</p>
+<blockquote>
+<p>若是链表来存的，那么归并排序是更好的选择。</p>
+</blockquote>
+<blockquote>
+<p>数据是否可以装在内存中 —&gt; 数据量很大或者内存很小，需要使用外排序算法。</p>
+</blockquote>
+<p><strong>遇到非常难的问题</strong>——关键在于表达出你解决问题的思路。甚至可以说出，这个问题的解决方案应该在哪一个领域，可以通过进一步学习来解决。</p>
+<h3 id="算法面试优秀-技术面试优秀"><a href="#算法面试优秀-技术面试优秀" class="headerlink" title="算法面试优秀 != 技术面试优秀"></a>算法面试优秀 != 技术面试优秀</h3><p>算法面试只是技术面试的一部分。</p>
+<p>一般会问项目经历，项目中遇到的实际问题。</p>
+<blockquote>
+<p>体现你解决问题的能力，考察你的实际参与程度，以及仅仅只是完成了任务还是对项目中一些技术点进行了深入的思考，再由此判断你对于技术的态度。<strong>因此写在简历上的项目要仔细地梳理</strong>。</p>
+</blockquote>
+<p>你遇到的印象最深的bug是什么，如何处理的。</p>
+<blockquote>
+<p>技术水平的深度由此高下立判。</p>
+</blockquote>
+<p>其他：<br>面向对象<br>设计模式<br>网络相关、安全相关、内存相关、并发相关…<br>系统设计、scalability</p>
+<h3 id="技术面试优秀-拿到offer"><a href="#技术面试优秀-拿到offer" class="headerlink" title="技术面试优秀 != 拿到offer"></a>技术面试优秀 != 拿到offer</h3><p>公司不仅仅考察你的技术水平，还要通过过去了解你的思考行为方式。</p>
+<p>参与的项目至关重要：</p>
+<blockquote>
+<p>工作真实项目<br>研究生项目<br>实习<br>参与实战课程学习——慕课、Coursera…<br>创建自己的项目——如一本优秀书籍的代码整理。github、技术博客。</p>
+</blockquote>
+<p>其他：</p>
+<blockquote>
+<p>遇到的最大的挑战<br>犯过的错误<br>遭遇的失败<br>最享受的工作内容<br>遇到冲突的处理方式<br>做得最与众不同的事儿</p>
+</blockquote>
+<p>准备合适的问题问面试官：</p>
+<blockquote>
+<p>整个小组的大概运行模式<br>整个项目的后续规划是如何的<br>这个产品的某个问题是如何解决的<br>为什么会选择某些技术？标注？<br>我对某个技术很感兴趣，在小组中有何机会来深入这种技术？</p>
+</blockquote>
+<h2 id="算法面试"><a href="#算法面试" class="headerlink" title="算法面试"></a>算法面试</h2><p><strong>常见误区</strong>：远远不需要啃完一本《算法导论》，因此书强调理论证明，如果花很多时间在上面，会有很强挫败感，也无法在有限的时间内搞定算法面试的准备，要抓大。此外，高级数据结构何算法一般很少提及，包括红黑树、B-Tree、计算几何、数论、FFT、斐波那契堆。此外，算法面试也远远不需要达到信息学竞赛的水平。</p>
+<p><strong>注意事项</strong>：不要轻视基础算法和数据结构，而只关注有意思的题目。基础包括——</p>
+<blockquote>
+<p>各种排序算法<br>基础数据结构和算法的实现：堆、二叉树、图<br>基础数据结构的使用：链表、栈、队列、哈希表、图、Trie、并查集…<br>基础算法：深度优先、广度优先、二分查找、递归…<br>基本算法思想：递归、分治、回溯搜索、贪心、动态规划…</p>
+</blockquote>
+<p><strong>选择合适的OJ</strong>：OJ(online judge <em>在线判题系统</em>)——不要选择过于偏向程序设计竞赛的OJ。建议首选<a target="_blank" rel="noopener" href="http://www.leetcode.com/">LeetCode</a>(来源于真实的面试问题)、以<a target="_blank" rel="noopener" href="http://www.hackerrank.com/">HackerRank</a>(对问题的分类很详细)为辅。</p>
+<p>学习和实践做题之间要平衡好。</p>
+<p><strong>解决算法面试问题的整体思路</strong></p>
+<p>1.注意题目中的条件</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/leetcode/">leetcode</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/06/29/2020-06-29-%E3%80%8A%E8%82%A1%E5%B8%82%E9%95%BF%E7%BA%BF%E6%B3%95%E5%AE%9D%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">《股市长线法宝》读书笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/06/22/2020-06-22-%E5%8E%86%E5%B1%8A%E9%87%91%E7%89%9B%E5%A5%96%E8%82%A1%E7%A5%A8%E5%9E%8B%E5%9F%BA%E9%87%91%E3%80%81%E6%B7%B7%E5%90%88%E5%9E%8B%E5%9F%BA%E9%87%91%E8%8E%B7%E5%A5%96%E6%A6%9C%E5%8D%95%EF%BC%882013-2019%EF%BC%89/">
+                        <span class="hidden-mobile">历届金牛奖股票型基金、混合型基金获奖榜单（2013-2020）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"NulCS22MYqxU40Y1KyiQQk1B-gzGzoHsz","appKey":"U4AvRC9iuv688NfcP3WspcGE","path":"window.location.pathname","placeholder":"请在此输入您的留言","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"notify":true,"verify":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+    
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
