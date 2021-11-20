@@ -1,0 +1,660 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="基金的含义，主动基金VS被动基金，指数基金的优势，基金定投，微笑曲线，根据估值来定投">
+  <meta name="author" content="某工程师">
+  <meta name="keywords" content="">
+  <meta name="description" content="基金的含义，主动基金VS被动基金，指数基金的优势，基金定投，微笑曲线，根据估值来定投">
+<meta property="og:type" content="article">
+<meta property="og:title" content="国债逆回购从入门到实践">
+<meta property="og:url" content="http://example.com/2020/03/12/2020-03-12-%E5%9B%BD%E5%80%BA%E9%80%86%E5%9B%9E%E8%B4%AD%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/index.html">
+<meta property="og:site_name" content="ALOHA">
+<meta property="og:description" content="基金的含义，主动基金VS被动基金，指数基金的优势，基金定投，微笑曲线，根据估值来定投">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://user-images.githubusercontent.com/35519242/76495898-c60cd300-6472-11ea-8811-c678a8c49777.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/35519242/76496798-bee6c480-6474-11ea-8c6b-3cabc3adb4db.jpg">
+<meta property="og:image" content="https://user-images.githubusercontent.com/35519242/76497519-16d1fb00-6476-11ea-8d5c-69a5ba25563f.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/35519242/76498492-f6a33b80-6477-11ea-9be0-e38be0c34787.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/35519242/76506011-65d35c80-6485-11ea-98ab-95e071875f37.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/35519242/76506270-d8dcd300-6485-11ea-9382-deb63005a5ab.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/35519242/76506477-31ac6b80-6486-11ea-826d-64a3faa785b6.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/35519242/76506693-8bad3100-6486-11ea-9705-28598cc44674.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/35519242/76506998-0413f200-6487-11ea-8143-a1d85a86dd2e.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/35519242/76507219-5fde7b00-6487-11ea-8508-260f72bad34a.png">
+<meta property="article:published_time" content="2020-03-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-11-20T13:56:50.381Z">
+<meta property="article:author" content="某工程师">
+<meta property="article:tag" content="理财入门">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/35519242/76495898-c60cd300-6472-11ea-8811-c678a8c49777.png">
+  
+  <title>国债逆回购从入门到实践 - ALOHA</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"NulCS22MYqxU40Y1KyiQQk1B-gzGzoHsz","app_key":"U4AvRC9iuv688NfcP3WspcGE","server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ALOHA</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="国债逆回购从入门到实践">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-03-12 00:00" pubdate>
+        2020年3月12日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.8k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      6 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">国债逆回购从入门到实践</h1>
+            
+            <div class="markdown-body">
+              <p><strong>各种投资的风险大小</strong></p>
+<p> <img src="https://user-images.githubusercontent.com/35519242/76495898-c60cd300-6472-11ea-8811-c678a8c49777.png" srcset="/img/loading.gif" lazyload alt="Alt"></p>
+<h2 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h2><p><strong>借款人用自己的国债作为抵押来获得借款，到期后还本息。</strong></p>
+<ul>
+<li><p>借款人一般是大企业，资产至少300万。</p>
+</li>
+<li><p>在某些时间节点，可以达到日均年华**<code>20%~30%</code>*<em>的收益率（</em>2016年9月29日，上交所1天期国债逆回购利率盘中突破了45%*），</p>
+</li>
+<li><p>市场缺钱时，企业会通过高额利息来借钱，国债逆回购是其中一个渠道。国债逆回购利率高就是市场缺钱的信号。</p>
+</li>
+</ul>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p><strong>安全，永不亏本</strong></p>
+<blockquote>
+<p>中国证券登记结算有限公司（简称中登公司，类似于证券交易所的角色）在监督管理，帮你要钱。</p>
+</blockquote>
+</li>
+<li><p><strong>低风险高收益</strong></p>
+<blockquote>
+<p>市场上的资金面紧张，那么逆回购的收益率肯定高。</p>
+</blockquote>
+</li>
+<li><p><strong>操作方便</strong></p>
+<blockquote>
+<p>需要股票账户</p>
+</blockquote>
+</li>
+<li><p><strong>手续费低</strong></p>
+</li>
+</ul>
+<h2 id="适合人群"><a href="#适合人群" class="headerlink" title="适合人群"></a>适合人群</h2><ul>
+<li><p>只会寸银行、余额宝的人，但是想获取高收益。</p>
+</li>
+<li><p>股民。<em>证券软件里的钱，放着没有收益，可以存一天的逆回购，过夜获取收益</em>。</p>
+</li>
+<li><p>新手投资试水。</p>
+</li>
+</ul>
+<h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><p><img src="https://user-images.githubusercontent.com/35519242/76496798-bee6c480-6474-11ea-8c6b-3cabc3adb4db.jpg" srcset="/img/loading.gif" lazyload alt="Alt"></p>
+<p>一共有18种，沪、深两市各**<code>9</code><strong>种。沪市为</strong><code>国债逆回购</code><strong>，深市为</strong><code>企业债逆回购</code>**。</p>
+<h3 id="代码解释"><a href="#代码解释" class="headerlink" title="代码解释"></a>代码解释</h3><blockquote>
+<p>代码是我们参加国债逆回购下单时需要输入的号码。</p>
+<p>GC代表上海交易所的品种，R代表深圳交易所的品种。后面的数字代表的是借钱的天数，001代表一天，002代表两天。</p>
+<p>借1天就是一天逆回购，借7天就是七天逆回购，目前市场上成交较活跃的是1天、3天、7天等短期性产品。</p>
+</blockquote>
+<h3 id="沪市vs深市"><a href="#沪市vs深市" class="headerlink" title="沪市vs深市"></a>沪市vs深市</h3><blockquote>
+<p>沪市比较高：1000元为1手，100手起，即操作一次至少需要10万元。</p>
+<p>深市：100元为1手，10手起。如果想多卖，要按照1000的整数倍来累加，2000、3000…上不封顶。</p>
+</blockquote>
+<h3 id="交易时间"><a href="#交易时间" class="headerlink" title="交易时间"></a>交易时间</h3><blockquote>
+<p>国债逆回购的交易时间和股票一样，只能开市时间进行。即在每周一到周五上午时段**<code>9:30-11:30</code><strong>，下午时段</strong><code>13:00-15:00</code>**，国家法定节假日不可以操作。</p>
+</blockquote>
+<h3 id="逆回购资金的到账日与提帐日"><a href="#逆回购资金的到账日与提帐日" class="headerlink" title="逆回购资金的到账日与提帐日"></a>逆回购资金的到账日与提帐日</h3><blockquote>
+<p>到账日是T+1，提现日是T+2。</p>
+<p>逆回购1天为例，当天买入，下一个交易日开盘前到账（<strong>即不影响第二天的股票交易</strong>，**<code>因此适合股民</code>**）；再下一个交易日可以提现转出到自己的银行卡上。</p>
+<p><strong>周末不开市，到账日期要顺延</strong>。</p>
+</blockquote>
+<h3 id="手续费收费标准"><a href="#手续费收费标准" class="headerlink" title="手续费收费标准"></a>手续费收费标准</h3><p>每10万元收费1-30元，一千块钱，只需要0.01-0.3元手续费。</p>
+<blockquote>
+<p><img src="https://user-images.githubusercontent.com/35519242/76497519-16d1fb00-6476-11ea-8d5c-69a5ba25563f.png" srcset="/img/loading.gif" lazyload alt="Alt"> </p>
+</blockquote>
+<h3 id="收益计算"><a href="#收益计算" class="headerlink" title="收益计算"></a>收益计算</h3><p><strong><code>利息收入=交易金额x利率/365x实际占款天数</code></strong>   </p>
+<blockquote>
+<p><em>天数为实际占用天数，比如周四购买一天期的逆回购，周五资金到账，周一才能取出来，则实际占用天数为3天。</em></p>
+</blockquote>
+<p><strong><code>实得收益=利息收入-本金*手续费率</code></strong></p>
+<h2 id="高利率的时间点"><a href="#高利率的时间点" class="headerlink" title="高利率的时间点"></a>高利率的时间点</h2><p><strong>1.从一年时间来看，<code>月末</code>、<code>季末</code>、<code>年中</code>、<code>年终</code>钱荒的时候，利率会飙升。</strong></p>
+<blockquote>
+<p><img src="https://user-images.githubusercontent.com/35519242/76498492-f6a33b80-6477-11ea-9be0-e38be0c34787.png" srcset="/img/loading.gif" lazyload alt="Alt"></p>
+</blockquote>
+<p><strong>2.从一周来看，周四的利率会比较高。</strong></p>
+<p><strong>3.从一天时段来看，每天开盘半小时，是操作好机会。</strong> <em>因为很多人在观望要不要买彩票，所以有借钱意愿的人比较少</em>。</p>
+<p>4.<em>时间长的逆回购利率也相对低些，一般一天逆回购交易量最大，所以也就能获得一个更高的利率。</em></p>
+<h2 id="操作指南"><a href="#操作指南" class="headerlink" title="操作指南"></a>操作指南</h2><p><strong>前提条件</strong></p>
+<p>①在券商开户</p>
+<p>②最少有1000.10元在账户（0.10元是交易手续费）</p>
+<ol>
+<li><p>以华泰证券的APP【涨乐财富通】为例，我们把钱转到证券账户以后，打开券商的APP，点击“交易”</p>
+<blockquote>
+<p><img src="https://user-images.githubusercontent.com/35519242/76506011-65d35c80-6485-11ea-98ab-95e071875f37.png" srcset="/img/loading.gif" lazyload alt="Alt"></p>
+</blockquote>
+</li>
+<li><p>选择国债理财</p>
+<blockquote>
+<p><img src="https://user-images.githubusercontent.com/35519242/76506270-d8dcd300-6485-11ea-9382-deb63005a5ab.png" srcset="/img/loading.gif" lazyload></p>
+</blockquote>
+</li>
+<li><p>进入了以后，可以直接点击选择一天期的，也可选择查看所有国债理财产品</p>
+<blockquote>
+<p><img src="https://user-images.githubusercontent.com/35519242/76506477-31ac6b80-6486-11ea-826d-64a3faa785b6.png" srcset="/img/loading.gif" lazyload alt="Alt"></p>
+</blockquote>
+</li>
+<li><p>选择我们要操作的逆回购品种进入就行，比如说我们选择一天期的，立即参与，选择相应的年化收益率，还有参与金额，选择下单就可以</p>
+<blockquote>
+<p><img src="https://user-images.githubusercontent.com/35519242/76506693-8bad3100-6486-11ea-9705-28598cc44674.png" srcset="/img/loading.gif" lazyload alt="Alt"></p>
+<p>如果我们做10000元的国债逆回购，就在参与金额中填10000，如果想立刻成交，就以“买一”2.6%的利率卖出。</p>
+<p><img src="https://user-images.githubusercontent.com/35519242/76506998-0413f200-6487-11ea-8143-a1d85a86dd2e.png" srcset="/img/loading.gif" lazyload alt="Alt"></p>
+</blockquote>
+</li>
+<li><p>点击卖出后，点击“卖出”后界面会弹出你的委托资料，可以查看是否成交，在检查输入无误后按“确定”。</p>
+</li>
+<li><p>交易成功后可在“持仓”中查询</p>
+<blockquote>
+<p><img src="https://user-images.githubusercontent.com/35519242/76507219-5fde7b00-6487-11ea-8508-260f72bad34a.png" srcset="/img/loading.gif" lazyload alt="Alt"></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li><p>注意，不到期钱是拿不出来的，长时间的逆回购交易要谨慎。</p>
+</li>
+<li><p>逆回购的操作方向不是“买入”而是“卖出”，这是交易所硬性规定的， 也可以简单理解成你的钱是借出去给别人的，所以我们是卖方。</p>
+</li>
+<li><p>操作第四步时，那如果想利率高一点，可以把价格挂高一点，但是有成交不了的风险。</p>
+</li>
+<li><p>一天期的国债逆回购，会在第二个交易日的早上自动回款，无需任何操作。</p>
+<blockquote>
+<p>今天做了一天期逆回购，即使你是15：00前“卖出”的，明天早上9点前资金就重新在证券账户上了，可以拿来买卖股票或继续做逆回购。但到了第三个交易日，这个钱才可以取出来。</p>
+</blockquote>
+</li>
+<li><p>14天、28天、91天、182天这样长周期的国债逆回购收益率不太高，大多低于同期的银行理财，性价比不高。</p>
+</li>
+<li><p>月末、季末、年末因钱荒，这几天短期国债逆回购的收益率开始大幅上升。而平时主要是在**<code>2-3%</code><strong>徘徊。</strong>所以这个品种是等到有机会的时候再参与。**</p>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%90%86%E8%B4%A2%E8%AF%BE/">理财课</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%90%86%E8%B4%A2%E5%85%A5%E9%97%A8/">理财入门</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/03/19/2020-03-19-%E6%8B%8D%E7%85%A7%E6%8A%80%E5%B7%A7/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">拍照小技巧3招</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/03/07/2020-03-04-%E8%B4%A2%E5%95%86%E6%95%99%E8%82%B2%EF%BC%8C%E7%90%86%E8%B4%A2%E4%B8%8E%E6%8A%95%E8%B5%84%EF%BC%8C%E8%B5%84%E4%BA%A7%E9%85%8D%E7%BD%AE/">
+                        <span class="hidden-mobile">财商教育，理财与投资，资产配置</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"NulCS22MYqxU40Y1KyiQQk1B-gzGzoHsz","appKey":"U4AvRC9iuv688NfcP3WspcGE","path":"window.location.pathname","placeholder":"请在此输入您的留言","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"notify":true,"verify":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+    
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,873 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="这里是我的个人博客">
+  <meta name="author" content="某工程师">
+  <meta name="keywords" content="">
+  <meta name="description" content="这里是我的个人博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ALOHA">
+<meta property="og:url" content="http://example.com/page/5/index.html">
+<meta property="og:site_name" content="ALOHA">
+<meta property="og:description" content="这里是我的个人博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="某工程师">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>ALOHA</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"NulCS22MYqxU40Y1KyiQQk1B-gzGzoHsz","app_key":"U4AvRC9iuv688NfcP3WspcGE","server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ALOHA</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="我们的征途是星辰大海。">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/04/10/2020-04-10-%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%EF%BC%8C%E5%A6%82%E4%BD%95%E5%88%9D%E7%AD%9B%E7%99%BD%E9%A9%AC%E8%82%A1/" target="_self">
+          价值投资，如何初筛白马股
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/04/10/2020-04-10-%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%EF%BC%8C%E5%A6%82%E4%BD%95%E5%88%9D%E7%AD%9B%E7%99%BD%E9%A9%AC%E8%82%A1/" target="_self">
+          
+          
+            
+          
+          价值投资的核心，ROE，白马股的本质及共性
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-10 00:00" pubdate>
+              2020-04-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%90%86%E8%B4%A2%E8%AF%BE/">理财课</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%82%A1%E7%A5%A8/">股票</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/04/10/2020-04-10-%E8%82%A1%E7%A5%A8%E5%B0%8F%E8%B4%B4%E5%A3%AB%E2%80%94%E2%80%94%E5%B8%B8%E8%A7%81%E5%90%8D%E8%AF%8D%E8%A7%A3%E6%9E%90/" target="_self">
+          股票小贴士——常见名词解析
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/04/10/2020-04-10-%E8%82%A1%E7%A5%A8%E5%B0%8F%E8%B4%B4%E5%A3%AB%E2%80%94%E2%80%94%E5%B8%B8%E8%A7%81%E5%90%8D%E8%AF%8D%E8%A7%A3%E6%9E%90/" target="_self">
+          
+          
+            
+          
+          证券交易所、上市公司、市值和流通市值、IPO、控股股东、实际控制人
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-10 00:00" pubdate>
+              2020-04-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%90%86%E8%B4%A2%E8%AF%BE/">理财课</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%82%A1%E7%A5%A8/">股票</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/04/10/2020-04-10-%E7%9C%8B%E5%A4%A7%E5%8A%BF%EF%BC%8C%E8%AF%86%E5%A4%A9%E8%B1%A1/" target="_self">
+          看大势，识天象
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/04/10/2020-04-10-%E7%9C%8B%E5%A4%A7%E5%8A%BF%EF%BC%8C%E8%AF%86%E5%A4%A9%E8%B1%A1/" target="_self">
+          
+          
+            
+          
+          中国股市发展历史，股票指数分类，PE和PB，如何判断入场时机
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-10 00:00" pubdate>
+              2020-04-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%90%86%E8%B4%A2%E8%AF%BE/">理财课</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%82%A1%E7%A5%A8/">股票</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/04/10/2020-04-10-%E8%82%A1%E7%A5%A8%E6%98%AF%E4%BB%80%E4%B9%88/" target="_self">
+          股票是什么
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/04/10/2020-04-10-%E8%82%A1%E7%A5%A8%E6%98%AF%E4%BB%80%E4%B9%88/" target="_self">
+          
+          
+            
+          
+          股票、股份、股票市场、股票的收益来源、一级市场/二级市场
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-10 00:00" pubdate>
+              2020-04-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%90%86%E8%B4%A2%E8%AF%BE/">理财课</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%82%A1%E7%A5%A8/">股票</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/04/10/2020-04-10-%E8%82%A1%E7%A5%A8%E6%8A%95%E8%B5%84%E7%AC%AC%E4%B8%80%E6%AD%A5/" target="_self">
+          股票投资第一步
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/04/10/2020-04-10-%E8%82%A1%E7%A5%A8%E6%8A%95%E8%B5%84%E7%AC%AC%E4%B8%80%E6%AD%A5/" target="_self">
+          
+          
+            
+          
+          为什么投资股票跑赢通胀​            房地产难以持续；美国股市验证（1970年至今，标普500指数上涨了36倍，物价上涨了6倍）
+随公司成长​            买股票等于买公司
+非主业收入流动性好​            今天卖，明天取现
+股票投资门派宏观投资派​            从宏观经济出发，门槛超高，普通人碰不到
+​            代表人物：“金融巨鳄”乔治·索
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-10 00:00" pubdate>
+              2020-04-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%90%86%E8%B4%A2%E8%AF%BE/">理财课</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%82%A1%E7%A5%A8/">股票</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/04/05/2020-04-05-%E6%99%AE%E9%80%9A%E4%BA%BA%E9%80%82%E5%90%88%E4%B9%B0%E6%8C%87%E6%95%B0%E5%9F%BA%E9%87%91%E5%90%97%EF%BC%9F%E8%82%A1%E7%A5%A8%E3%80%81%E6%B7%B7%E5%90%88%E5%9F%BA%E9%87%91%E7%9A%84%E9%98%BF%E5%B0%94%E6%B3%95%CE%B1%E5%92%8C%E8%B4%9D%E5%A1%94%CE%B2/" target="_self">
+          普通人适合买指数基金吗？股票、混合基金的阿尔法α和贝塔β
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/04/05/2020-04-05-%E6%99%AE%E9%80%9A%E4%BA%BA%E9%80%82%E5%90%88%E4%B9%B0%E6%8C%87%E6%95%B0%E5%9F%BA%E9%87%91%E5%90%97%EF%BC%9F%E8%82%A1%E7%A5%A8%E3%80%81%E6%B7%B7%E5%90%88%E5%9F%BA%E9%87%91%E7%9A%84%E9%98%BF%E5%B0%94%E6%B3%95%CE%B1%E5%92%8C%E8%B4%9D%E5%A1%94%CE%B2/" target="_self">
+          
+          
+            
+          
+          宽基指数和行业指数。跟踪误差的来源。判断基金风险和收益的指标——阿尔法和贝塔。
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-05 00:00" pubdate>
+              2020-04-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%90%86%E8%B4%A2%E8%AF%BE/">理财课</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%9F%BA%E9%87%91/">基金</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/04/05/2020-04-05-%E8%B0%88%E8%B0%88%E4%BB%8E%E5%9F%BA%E9%87%91%E6%8C%A4%E5%85%91%E5%88%B0%E6%8C%81%E6%9C%89%E4%BA%BA%E7%BB%93%E6%9E%84%EF%BC%8C%E6%B5%85%E8%B0%88%E5%A6%82%E4%BD%95%E6%8C%91%E9%80%89%E5%9F%BA%E9%87%91%E7%BB%8F%E7%90%86/" target="_self">
+          谈谈从基金挤兑到持有人结构，浅谈如何挑选基金经理
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/04/05/2020-04-05-%E8%B0%88%E8%B0%88%E4%BB%8E%E5%9F%BA%E9%87%91%E6%8C%A4%E5%85%91%E5%88%B0%E6%8C%81%E6%9C%89%E4%BA%BA%E7%BB%93%E6%9E%84%EF%BC%8C%E6%B5%85%E8%B0%88%E5%A6%82%E4%BD%95%E6%8C%91%E9%80%89%E5%9F%BA%E9%87%91%E7%BB%8F%E7%90%86/" target="_self">
+          
+          
+            
+          
+          谈谈从基金挤兑到持有人结构什么是挤兑
+假设银行经营不善、信用度下降或者传闻破产，然后几乎所有人都去银行把钱取出来，而正常情况下，银行是没有这么多可动用的资金来归还的，这会使银行陷入流动性危机，进而破产倒闭，这就是“挤兑”。挤兑风险需要防范。
+
+不同类型基金的持有人结构应当不同挤兑的现象是主要是由于投资者对资产价格较大幅度变动而产生的过激反应。
+股票型基金
+一般个人投资者对股市波动很敏感，尤其是下跌
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-05 00:00" pubdate>
+              2020-04-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%90%86%E8%B4%A2%E8%AF%BE/">理财课</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%9F%BA%E9%87%91/">基金</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/04/05/2020-04-05-%E8%AE%A4%E8%AF%86%E6%99%A8%E6%98%9F%E7%AD%9B%E9%80%89%E5%99%A8%E5%92%8C%E6%99%A8%E6%98%9F%E4%B9%9D%E5%AE%AB%E6%A0%BC%EF%BC%9B%E4%BB%B7%E5%80%BC%E5%9E%8B%E5%92%8C%E6%88%90%E9%95%BF%E5%9E%8B%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E7%AD%96%E7%95%A5%E7%9A%84%E5%B7%AE%E5%BC%82/" target="_self">
+          认识晨星筛选器和晨星九宫格；价值型和成长型基金投资策略的差异
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/04/05/2020-04-05-%E8%AE%A4%E8%AF%86%E6%99%A8%E6%98%9F%E7%AD%9B%E9%80%89%E5%99%A8%E5%92%8C%E6%99%A8%E6%98%9F%E4%B9%9D%E5%AE%AB%E6%A0%BC%EF%BC%9B%E4%BB%B7%E5%80%BC%E5%9E%8B%E5%92%8C%E6%88%90%E9%95%BF%E5%9E%8B%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E7%AD%96%E7%95%A5%E7%9A%84%E5%B7%AE%E5%BC%82/" target="_self">
+          
+          
+            
+          
+          价值股、成长股
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-05 00:00" pubdate>
+              2020-04-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%90%86%E8%B4%A2%E8%AF%BE/">理财课</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%9F%BA%E9%87%91/">基金</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/04/03/2020-03-30-%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E6%8A%80%E5%B7%A7%E2%80%94%E2%80%94%E5%B7%A7%E5%A6%99%E8%B5%84%E4%BA%A7%E9%85%8D%E7%BD%AE/" target="_self">
+          基金投资技巧——组合定投宽基指数，巧妙资产配置，基金组合如何动态调整
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/04/03/2020-03-30-%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E6%8A%80%E5%B7%A7%E2%80%94%E2%80%94%E5%B7%A7%E5%A6%99%E8%B5%84%E4%BA%A7%E9%85%8D%E7%BD%AE/" target="_self">
+          
+          
+            
+          
+          宽基指数要组合定投，如何配置；风险系数；
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-03 00:00" pubdate>
+              2020-04-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%90%86%E8%B4%A2%E8%AF%BE/">理财课</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%9F%BA%E9%87%91/">基金</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/04/03/2020-04-03-%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E6%8A%80%E5%B7%A7%E2%80%94%E2%80%94%E8%B5%A2%E5%9C%A8%E5%A5%BD%E5%BF%83%E6%80%81/" target="_self">
+          基金投资技巧——赢在好心态
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/04/03/2020-04-03-%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E6%8A%80%E5%B7%A7%E2%80%94%E2%80%94%E8%B5%A2%E5%9C%A8%E5%A5%BD%E5%BF%83%E6%80%81/" target="_self">
+          
+          
+            
+          
+          常见的投资误区
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-03 00:00" pubdate>
+              2020-04-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%90%86%E8%B4%A2%E8%AF%BE/">理财课</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%9F%BA%E9%87%91/">基金</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#board">6</a><a class="page-number" href="/page/7/#board">7</a><a class="page-number" href="/page/8/#board">8</a><a class="extend next" rel="next" href="/page/6/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+    
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
