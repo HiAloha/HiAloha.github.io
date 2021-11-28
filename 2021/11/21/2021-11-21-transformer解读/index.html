@@ -58,21 +58,13 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/35519242/143730798-83389c0c-5705-4355-ab54-965468950ed2.png">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-4d82d55512d23ca63a42ac5b85b8c494_720w.jpg">
 <meta property="og:image" content="https://pic2.zhimg.com/80/v2-5ed7b1947af14225715fd25751133855_720w.jpg">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=Q,K">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=A%5ET=Q%5ETK">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=A">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=A">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=Softmax(A)">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=Softmax(A)">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=A">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Csqrt%7Bd_k%7D">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=Softmax(A)">
+<meta property="og:image" content="https://user-images.githubusercontent.com/35519242/143764642-ca5af1d2-3454-4ea1-92aa-ccd8fd90898a.png">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=W_i%5EQ,W_i%5Ek,W_i%5EV">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=Q,K,V">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=W_i%5EQ,W_i%5Ek,W_i%5EV">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=QW_i%5EQ,KW_i%5Ek,VW_i%5EV">
 <meta property="article:published_time" content="2021-11-21T02:11:47.000Z">
-<meta property="article:modified_time" content="2021-11-28T10:40:17.726Z">
+<meta property="article:modified_time" content="2021-11-28T10:46:43.921Z">
 <meta property="article:author" content="某工程师">
 <meta property="article:tag" content="NLP">
 <meta name="twitter:card" content="summary_large_image">
@@ -245,7 +237,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      7.5k 字
+      7.3k 字
     </span>
   
 
@@ -479,17 +471,17 @@
 <li><p>为什么不直接使用$X$而要对其进行线性变换（通过<em>Wq</em>,<em>Wk</em>,<em>Wv</em> 得到q k v)</p>
 <p>为了提升模型的拟合能力，矩阵<em>Wq</em>,<em>Wk</em>,<em>Wv</em> 都是可以训练的，起到一个缓冲的效果。</p>
 </li>
-<li><p>$\sqrt{d_{k}}$的意义</p>
-<p>假设 <img src="https://www.zhihu.com/equation?tex=Q,K" srcset="/img/loading.gif" lazyload alt="[公式]"> 里的元素的均值为0，方差为1，那么 <img src="https://www.zhihu.com/equation?tex=A%5ET=Q%5ETK" srcset="/img/loading.gif" lazyload alt="[公式]"> 中元素的均值为0，方差为d. 当d变得很大时， <img src="https://www.zhihu.com/equation?tex=A" srcset="/img/loading.gif" lazyload alt="[公式]"> 中的元素的方差也会变得很大，如果 <img src="https://www.zhihu.com/equation?tex=A" srcset="/img/loading.gif" lazyload alt="[公式]"> 中的元素方差很大，那么 <img src="https://www.zhihu.com/equation?tex=Softmax(A)" srcset="/img/loading.gif" lazyload alt="[公式]"> 的分布会趋于陡峭(分布的方差大，分布集中在绝对值大的区域)。总结一下就是 <img src="https://www.zhihu.com/equation?tex=Softmax(A)" srcset="/img/loading.gif" lazyload alt="[公式]"> 的分布会和d有关。因此 <img src="https://www.zhihu.com/equation?tex=A" srcset="/img/loading.gif" lazyload alt="[公式]"> 中每一个元素除以<img src="https://www.zhihu.com/equation?tex=%5Csqrt%7Bd_k%7D" srcset="/img/loading.gif" lazyload alt="[公式]"> 后，方差又变为1。这使得 <img src="https://www.zhihu.com/equation?tex=Softmax(A)" srcset="/img/loading.gif" lazyload alt="[公式]"> 的分布“陡峭”程度与d解耦，从而使得训练过程中梯度值保持稳定。</p>
+<li><p>$\sqrt{d_{k}}$ 的意义</p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143764642-ca5af1d2-3454-4ea1-92aa-ccd8fd90898a.png" srcset="/img/loading.gif" lazyload></p>
 </li>
-<li><p>**Multi-Head Attention **怎么操作的（腾讯ieg游戏广告部门问到，答错了，一面挂）</p>
+<li><p><strong>Multi-Head Attention</strong> 怎么操作的（腾讯ieg游戏广告部门问到，答错了，一面挂）</p>
 <p>通过权重矩阵 <img src="https://www.zhihu.com/equation?tex=W_i%5EQ,W_i%5Ek,W_i%5EV" srcset="/img/loading.gif" lazyload alt="[公式]"> 将<img src="https://www.zhihu.com/equation?tex=Q,K,V" srcset="/img/loading.gif" lazyload alt="[公式]"> 分割，每个头分别计算 single self-attention，因为权重矩阵 <img src="https://www.zhihu.com/equation?tex=W_i%5EQ,W_i%5Ek,W_i%5EV" srcset="/img/loading.gif" lazyload alt="[公式]"> 各不相同， <img src="https://www.zhihu.com/equation?tex=QW_i%5EQ,KW_i%5Ek,VW_i%5EV" srcset="/img/loading.gif" lazyload alt="[公式]">的结果各不相同，因此我们说每个头的关注点各有侧重。最后，将每个头计算出的 single self-attention进行<strong>concat</strong>，通过总的权重矩阵$W^{O}$决定对每个头的关注程度，从而能够做到在不同语境下对相同句子进行不同理解。<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/311156298"><strong>参考</strong></a></p>
 </li>
 <li><p>softmax的维度</p>
 </li>
 </ul>
 <ul>
-<li><p>**Layer Normalization **作用，以及为什么不用 Batch Normalization </p>
+<li><p><strong>Layer Normalization</strong>作用，以及为什么不用 Batch Normalization </p>
 <p>$L N\left(x_{i}\right)=\alpha \frac{x_{i}-\mu_{i}}{\sqrt{\sigma^{2}+\xi}}+\beta$，作用是<strong>规范优化空间，加速收敛</strong>。我们使用梯度下降算法做优化时，我们可能会对输入数据进行归一化，但是经过网络层作用后，我们的数据已经不是归一化的了。随着网络层数的增加，数据分布不断发生变化，偏差越来越大，导致我们不得不使用更小的学习率来稳定梯度。Layer Normalization 的作用就是保证数据特征分布的稳定性，将数据标准化到ReLU激活函数的作用区域，可以使得激活函数更好的发挥作用。<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/311156298"><strong>参考</strong></a></p>
 </li>
 <li><p><strong>Residual Network 残差网络</strong> </p>
