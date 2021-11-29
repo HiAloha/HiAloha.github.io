@@ -245,7 +245,7 @@
             <h1 style="display: none">博客折腾记</h1>
             
             <div class="markdown-body">
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>整体参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/yaorongke/article/details/119089190">这篇文章</a>，过程中有个神坑的地方，部署到github后一直404，<a target="_blank" rel="noopener" href="https://blog.csdn.net/wilde123/article/details/111406371?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0.no_search_link&spm=1001.2101.3001.4242.1">参考了该文</a>后才解决。</p>
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>整体参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/yaorongke/article/details/119089190">这篇文章</a>，过程中有个神坑的地方，部署到github后一直404，<a target="_blank" rel="noopener" href="https://blog.csdn.net/wilde123/article/details/111406371?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0.no_search_link&amp;spm=1001.2101.3001.4242.1">参考了该文</a>后才解决。</p>
 <blockquote>
 <p><em>从2020.10.1开始github默认分支从master改为了main，教程及脚本都还是默认master，所以只需要将_config.yml文件中改为部署到github的main分支即可。</em></p>
 </blockquote>
@@ -259,12 +259,10 @@
 <p>6.hexo s（s就是server, 在服务器运行的意思）在本地测试，可以不进行这一步</p>
 <p>7.根目录下，改 _config.yml里面的参数。注意冒号后面有一个空格，branch一定要改成main而不是master。</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">theme:</span> fluid<br><span class="hljs-symbol">deploy:</span><br><span class="hljs-symbol"> 	  type:</span> git<br><span class="hljs-symbol"> 	  repo:</span> git@github.com:hialoha/hialoha.github.io.git<br><span class="hljs-symbol"> 	  branch:</span> main<br></code></pre></td></tr></table></figure>
-
-<p>8.npm install hexo-deployer-git –save  </p>
+<p>8.npm install hexo-deployer-git —save  </p>
 <p>9.再来一遍 hexo c、hexo g、hexo d，就把public里面的内容push到github上了。</p>
 <p>10.新增博文后，也是 hexo c、hexo g、hexo d 这三个操作。</p>
 <h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><h3 id="多客户端写作"><a href="#多客户端写作" class="headerlink" title="多客户端写作"></a>多客户端写作</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs gradle">【clone 指定分支】<br>git clone -b <span class="hljs-keyword">file</span> git@github.com:hialoha/hialoha.github.io.git   <br><br>【<span class="hljs-keyword">push</span> 从本地指定分支到远程指定分支】<br>git <span class="hljs-keyword">push</span> origin <span class="hljs-keyword">file</span>:<span class="hljs-keyword">file</span>  <br><br>【main分支单独使用 hexo来上传】<br>hexo clean, hexo g, hexo d <br><br>【pull 从远程指定分支到本地指定分支】<br>git pull origin <span class="hljs-keyword">file</span>:<span class="hljs-keyword">file</span><br><br></code></pre></td></tr></table></figure>
-
 
             </div>
             <hr>

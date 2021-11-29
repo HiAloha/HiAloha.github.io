@@ -59,12 +59,12 @@
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-4d82d55512d23ca63a42ac5b85b8c494_720w.jpg">
 <meta property="og:image" content="https://pic2.zhimg.com/80/v2-5ed7b1947af14225715fd25751133855_720w.jpg">
 <meta property="og:image" content="https://user-images.githubusercontent.com/35519242/143764642-ca5af1d2-3454-4ea1-92aa-ccd8fd90898a.png">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=W_i%5EQ,W_i%5Ek,W_i%5EV">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=Q,K,V">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=W_i%5EQ,W_i%5Ek,W_i%5EV">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=QW_i%5EQ,KW_i%5Ek,VW_i%5EV">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=W_i%5EQ%2CW_i%5Ek%2CW_i%5EV">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=Q%2CK%2CV">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=W_i%5EQ%2CW_i%5Ek%2CW_i%5EV">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=QW_i%5EQ%2CKW_i%5Ek%2CVW_i%5EV">
 <meta property="article:published_time" content="2021-11-21T02:11:47.000Z">
-<meta property="article:modified_time" content="2021-11-28T10:46:43.921Z">
+<meta property="article:modified_time" content="2021-11-29T02:00:28.896Z">
 <meta property="article:author" content="某工程师">
 <meta property="article:tag" content="NLP">
 <meta name="twitter:card" content="summary_large_image">
@@ -237,7 +237,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      7.3k 字
+      7.2k 字
     </span>
   
 
@@ -290,8 +290,7 @@
 <p><em>（我会慢慢一轮一轮地完善本文的）</em></p>
 <h2 id="模型详解"><a href="#模型详解" class="headerlink" title="模型详解"></a>模型详解</h2><h3 id="相关资源推荐"><a href="#相关资源推荐" class="headerlink" title="相关资源推荐"></a>相关资源推荐</h3><p>transformer是在论文<em>《Attention is all you need》</em>里面把self-attention发扬光大，说实话，该文其实对新手非常不友好，强烈推荐以李宏毅为首的资源：</p>
 <ul>
-<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1v3411r78R?p=1">台大李宏毅自注意力机制和Transformer详解</a>   <a target="_blank" rel="noopener" href="http://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a><br>ps: <em>李宏毅的课程ppt可以在其<a target="_blank" rel="noopener" href="https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.html">主页</a>下载</em>——<a target="_blank" rel="noopener" href="https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/self_v7.pdf">self-attention课件</a>，<a target="_blank" rel="noopener" href="https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/seq2seq_v9.pdf">transformer课件</a></p>
-</li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1v3411r78R?p=1">台大李宏毅自注意力机制和Transformer详解</a>   <a target="_blank" rel="noopener" href="http://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a><br>ps: <em>李宏毅的课程ppt可以在其<a target="_blank" rel="noopener" href="https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.html">主页</a>下载</em>——<a target="_blank" rel="noopener" href="https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/self_v7.pdf">self-attention课件</a>，<a target="_blank" rel="noopener" href="https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/seq2seq_v9.pdf">transformer课件</a></li>
 <li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1pu411o7BE?spm_id_from=333.999.0.0">李沐Transformer论文逐段精读</a></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/column/c_1314881818630352896">某知乎用户</a> 的解答还不错，给我补充了不少东西</p>
@@ -300,24 +299,24 @@
 <p>一开始不可能深入代码细节，我当初看论文的时候也看得云里雾里，看了N多博客也似懂非懂，所以还是从看最好的资源入手。<br>注意： 我几乎完全参考了李宏毅的视频，所以非重点内容已经把标题置为斜体了。从0开始看应该问题不大。</p>
 <h3 id="self-attention"><a href="#self-attention" class="headerlink" title="self-attention"></a>self-attention</h3><h4 id="input、output"><a href="#input、output" class="headerlink" title="input、output"></a>input、output</h4><p>如何把把一个词汇表示成一个向量呢，最简单做法是<strong>One-hot Encoding</strong>，这种做法没有包含语义信息，比如，cat分别和dog、apple做点积，结果都是0，但从语义上来说，cat和dog应该是更接近的，另外一种做法是用<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=X7PH3NuYW0Q"><strong>Word Embedding</strong></a>，先挖个坑。</p>
 <p>可以作为input的东西很多，如语言，语音(10ms用某种方法采样为一个向量)，分子</p>
-<p>输入和输出的长度:<br>输入为N，输出为N，输出如果是一个数字，那就是回归问题，如果是一个label，那就是分类问题。如<strong>POS tagging问题(词性标注)<strong>。<br>输入为N，输出为1，如根据一段话，判断是谁说的；或者输入一个分子，判断是否有毒性。<br>输入为N，输出不确定，由机器自己决定，如翻译任务，</strong>seq2seq任务</strong>。</p>
+<p>输入和输出的长度:<br>输入为N，输出为N，输出如果是一个数字，那就是回归问题，如果是一个label，那就是分类问题。如<strong>POS tagging问题(词性标注)</strong>。<br>输入为N，输出为1，如根据一段话，判断是谁说的；或者输入一个分子，判断是否有毒性。<br>输入为N，输出不确定，由机器自己决定，如翻译任务，<strong>seq2seq任务</strong>。</p>
 <p>输入输出等长，又叫Sequence Labeling问题。要注意，输入一排向量，长度是不确定的。<br><em>fully connected这里没搞懂，参数共享不，再挖个坑</em></p>
 <h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><p>输入是向量，输出也是向量（大小和输入一致）。 然后后面你可以丢到一个FC里面，得到标签，解决分类问题。</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143065257-e174970e-88f0-4c91-9ffb-5f2419ef28c6.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143065257-e174970e-88f0-4c91-9ffb-5f2419ef28c6.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><strong>self-attention + FC可以叠加多个</strong>，经过第一个FC的输出，可以作为下一个self-attention的输入。</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143065279-245d861b-bac2-4365-9653-44f185451a4f.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143065279-245d861b-bac2-4365-9653-44f185451a4f.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><strong>计算权重</strong></p>
 <p>经过self-attention，从输入到输出，你的每一个输出都是考虑了每一个输入的。所以，对于a1，</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143065299-3257d596-5b7d-4af2-873d-2a751abb49ff.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143065299-3257d596-5b7d-4af2-873d-2a751abb49ff.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>用矩阵来解决，最终只需要学习的参数是Wq Wk Wv</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143265338-288dff4a-fb9e-4f52-a219-9120ea6c466b.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143265338-288dff4a-fb9e-4f52-a219-9120ea6c466b.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><strong>Multi-head Self-attention</strong></p>
 <p>多头操作，q 出来以后乘以两个矩阵，得到qi1 qi2，k 和 v 是一样的，然后分别单独求出输出，bi1 bi2，拼起来再经过一个矩阵 W0 得到最终输出。多头的数量，也是需要调的参数。</p>
 <p><img src="https://user-images.githubusercontent.com/35519242/143266491-ad88961b-ddf1-4635-8785-55199f0e565f.png" srcset="/img/loading.gif" lazyload alt="image"></p>
 <p><strong>position</strong></p>
 <p>提前加进去即可。位置向量可以手工，可以学习得到，并不一定要采用transformer那篇文章的方法，关于这个问题有很多研究的，见下图2。</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143268082-cca79ac9-f27f-4ef3-bfa0-c9eef6e3efcf.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143268544-362e2917-f072-4bc9-9a1b-601137bc462f.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143268082-cca79ac9-f27f-4ef3-bfa0-c9eef6e3efcf.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143268544-362e2917-f072-4bc9-9a1b-601137bc462f.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <h4 id="其他应用"><a href="#其他应用" class="headerlink" title="其他应用"></a><em>其他应用</em></h4><ul>
 <li><p>self-attention 用在语音和cv上现在也很常见。</p>
 </li>
@@ -325,15 +324,13 @@
 </li>
 <li><p>self-attention for Graph 应用也出现了</p>
 </li>
-<li><p>图神经网络参考：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?app=desktop&v=eybCCtNKwzA&feature=youtu.be">Graph Neural Network (1/2)</a>、<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?app=desktop&v=M9ht8vsVEw8&feature=youtu.be">Graph Neural Network (2/2)</a></p>
+<li><p>图神经网络参考：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?app=desktop&amp;v=eybCCtNKwzA&amp;feature=youtu.be">Graph Neural Network (1/2)</a>、<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?app=desktop&amp;v=M9ht8vsVEw8&amp;feature=youtu.be">Graph Neural Network (2/2)</a></p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2011.04006">Long Range Arena: A Benchmark for Efficient Transformers</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2009.06732">Efficient Transformers: A Survey</a></p>
-</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2011.04006">Long Range Arena: A Benchmark for Efficient Transformers</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2009.06732">Efficient Transformers: A Survey</a></li>
 </ul>
 <h3 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h3><h4 id="神图"><a href="#神图" class="headerlink" title="神图"></a>神图</h4><p>神图先放，慢慢解释</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143689653-f796349a-acd4-4bf6-8d54-64640ecdc55b.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143689653-f796349a-acd4-4bf6-8d54-64640ecdc55b.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <h4 id="Seq2seq-的广泛应用"><a href="#Seq2seq-的广泛应用" class="headerlink" title="Seq2seq 的广泛应用"></a><strong>Seq2seq 的广泛应用</strong></h4><p>transformer本质上是一个Seq2seq的模型，常见任务比如机器翻译、语音识别、语音合成、聊天机器人等等都是Seq2seq任务，输出的长度由模型来决定，提前未知。很多别的任务都可以用Seq2seq来解决，<strong>但是，或许针对特定任务设定特定模型会取得比Seq2seq更好的结果。</strong></p>
 <ul>
 <li><p><strong>QA</strong>：</p>
@@ -341,51 +338,51 @@
 <p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1806.08730">The Natural Language Decathlon: Multitask Learning as Question Answering</a><br><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1909.03329">LAMOL: LAnguage MOdeling for Lifelong Language Learning</a></p>
 </blockquote>
 </li>
-<li><p><strong>Syntactic Parsing</strong> <em>（参考文章：<strong>Grammar as a Foreign Language</strong>）</em><img src="https://user-images.githubusercontent.com/35519242/143675381-910204a7-6a35-43a9-ad71-8afb26b5cd2c.png" srcset="/img/loading.gif" lazyload></p>
+<li><p><strong>Syntactic Parsing</strong> <em>（参考文章：<strong>Grammar as a Foreign Language</strong>）</em><img src="https://user-images.githubusercontent.com/35519242/143675381-910204a7-6a35-43a9-ad71-8afb26b5cd2c.png" srcset="/img/loading.gif" lazyload alt=""></p>
 </li>
 <li><p><strong>Multi-label Classification</strong></p>
 <p>注意和 Multi-class Classification 区别，前者的意思是某个输入可以属于多个类别，而且类别数未知。</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143675607-8c2e0dd8-8de8-459e-ad4a-1d03cf35397b.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143675607-8c2e0dd8-8de8-459e-ad4a-1d03cf35397b.png" srcset="/img/loading.gif" lazyload alt=""></p>
 </li>
 <li><p><strong>Object Detection</strong></p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143675668-39a17c43-44df-4a30-8374-a0c47b48aa3e.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143675668-39a17c43-44df-4a30-8374-a0c47b48aa3e.png" srcset="/img/loading.gif" lazyload alt=""></p>
 </li>
 </ul>
 <h4 id="Seq2seq-的网络结构"><a href="#Seq2seq-的网络结构" class="headerlink" title="Seq2seq 的网络结构"></a>Seq2seq 的网络结构</h4><p>起源于 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1409.3215">Sequence to Sequence Learning with Neural Networks</a> 一文，是为了解决机器翻译问题。</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143675718-ff185279-5a01-427d-b105-59b04732be89.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143675718-ff185279-5a01-427d-b105-59b04732be89.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <h4 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a><strong>Encoder</strong></h4><p>输入一排向量，输出另外一排向量。</p>
-<p> <img src="https://user-images.githubusercontent.com/35519242/143675806-1136d6a4-397c-422d-a294-ee7c94fe7588.png" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="https://user-images.githubusercontent.com/35519242/143675806-1136d6a4-397c-422d-a294-ee7c94fe7588.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>​    Encoder 可以用 RNN 或者 CNN，也可以用 self-attention 来实现。</p>
 <p>​    self-attention 具体操作的时候，输入经过多个 block 后才得到输出（经过第一个 Block 后得到的输出作为下一个 Block 的输入，最后一个 Block 的输出作为最终输出），每个 block 是由多个 lay 来组成，下图中每个 Block 的操作具体如图右所示。</p>
-<p>​    <img src="https://user-images.githubusercontent.com/35519242/143675889-e99a5317-d277-4abc-b93a-166240c34f12.png" srcset="/img/loading.gif" lazyload></p>
+<p>​    <img src="https://user-images.githubusercontent.com/35519242/143675889-e99a5317-d277-4abc-b93a-166240c34f12.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>具体的操作如下，图非常清晰了，残差和 norm 的做法也指出了：</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143676429-1b4e8684-e679-44ae-a932-c62c32697740.png" srcset="/img/loading.gif" lazyload></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1v3411r78R?p=3&spm_id_from=pageDriver">Layer Normalization</a> 不用考虑 batch 的资讯， 输入一个向量，经过 Norm，输出另一个向量，操作的时候计算输入向量的均值和方差。<br><em><strong>关于 lay normalization 和 batch normalization 的详细区别，再挖个坑，简单来说是 Batch Normolization 对一批数据的同一维度做归一化，Layer Normolization 是对同一样本的不同维度进行归一化，和batch无关。</strong></em></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143676429-1b4e8684-e679-44ae-a932-c62c32697740.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1v3411r78R?p=3&amp;spm_id_from=pageDriver">Layer Normalization</a> 不用考虑 batch 的资讯， 输入一个向量，经过 Norm，输出另一个向量，操作的时候计算输入向量的均值和方差。<br><strong><em>关于 lay normalization 和 batch normalization 的详细区别，再挖个坑，简单来说是 Batch Normolization 对一批数据的同一维度做归一化，Layer Normolization 是对同一样本的不同维度进行归一化，和batch无关。</em></strong></p>
 <p>关于 Layer Norm 的操作放在哪个位置更好，以及思考 normalization 的方式，以下文章有探讨。</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143689648-be9ed296-1b35-4019-a25f-133a88d51d11.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143689648-be9ed296-1b35-4019-a25f-133a88d51d11.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <h4 id="Decoder"><a href="#Decoder" class="headerlink" title="Decoder"></a>Decoder</h4><p>注：斜体标题不是重点。</p>
 <h5 id="autoregressive（自回归）"><a href="#autoregressive（自回归）" class="headerlink" title="autoregressive（自回归）"></a>autoregressive（自回归）</h5><p>上一时刻的输出会当作下一时刻的输入。</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143690076-30227e04-16fb-4c69-874c-f7551320c984.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143690076-30227e04-16fb-4c69-874c-f7551320c984.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>把中间遮住，除了一个 Masked 的操作，decoder 其实和 encoder 是一样的。</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143690220-d00078e1-91cb-4a74-a80a-581be519c10e.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143690220-d00078e1-91cb-4a74-a80a-581be519c10e.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <h5 id="Masked-Self-attention"><a href="#Masked-Self-attention" class="headerlink" title="Masked Self-attention"></a>Masked Self-attention</h5><p>Masked 的操作很简单，attention 的时候只考虑左边的东西，不考虑右边的东西。就是你当前求 a1 的输出 b1 时，只能看到 a1，求 b2，只能看到 a1、a2。原因其实很简单，你输出的时候，是一个一个出来的，你输出b2的时候，你是没有a3、a4……的。</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143690269-31ff93aa-523a-4c76-9a12-985954ae6901.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143690269-31ff93aa-523a-4c76-9a12-985954ae6901.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>如何停下来？最后一个输出是 end，出现 end 就停止</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143690538-13b253aa-98b1-4267-962e-e7bbbd661cdd.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143690538-13b253aa-98b1-4267-962e-e7bbbd661cdd.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <h5 id="Encoder-和-Decoder-的交互"><a href="#Encoder-和-Decoder-的交互" class="headerlink" title="Encoder 和 Decoder 的交互"></a><strong>Encoder 和 Decoder 的交互</strong></h5><p>上文 decoder 被遮住的部分，其实是一个 <strong>cross attention</strong>，有两个输入来自 encoder，有一个输入来自 decoder，具体实现如下图</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143691063-21a33705-1fbf-4adf-8c74-f67604a369f0.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143691063-21a33705-1fbf-4adf-8c74-f67604a369f0.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>接下来的第二个输出的操作是一样的，如下图所示</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143691257-890668ff-2645-45bf-9197-32a0eae63190.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143691257-890668ff-2645-45bf-9197-32a0eae63190.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <h5 id="Non-autoregressive-NAT"><a href="#Non-autoregressive-NAT" class="headerlink" title="Non-autoregressive (NAT)"></a><em>Non-autoregressive (<strong>NAT</strong>)</em></h5><p>两种方法来决定输出：1.把encoder的输出吃进一个classical求得一个长度，由这个长度来决定decoder的输出的长度。2.假设按经验最长就是300了，全部输进去，输出的时候，找到end，舍弃掉end右端的。</p>
-<p>NAT的好处：1.并行，不用像AT那样一个一个地输出（需要做多次decoder操作），因此速度比AT快。2.能更好地控制输出的长度。<br>NAT的缺陷：表现不如AT，原因是 Multi-modality，<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?app=desktop&v=jvyKmU4OM3c&feature=youtu.be"><strong>NAT参考视频</strong></a>。</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143690588-6bff23ba-f3e8-4699-8cc2-4f0ad3906f11.png" srcset="/img/loading.gif" lazyload></p>
+<p>NAT的好处：1.并行，不用像AT那样一个一个地输出（需要做多次decoder操作），因此速度比AT快。2.能更好地控制输出的长度。<br>NAT的缺陷：表现不如AT，原因是 Multi-modality，<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?app=desktop&amp;v=jvyKmU4OM3c&amp;feature=youtu.be"><strong>NAT参考视频</strong></a>。</p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143690588-6bff23ba-f3e8-4699-8cc2-4f0ad3906f11.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <h5 id="cross-attention的历史及其他操作"><a href="#cross-attention的历史及其他操作" class="headerlink" title="cross attention的历史及其他操作"></a><em>cross attention的历史及其他操作</em></h5><p>关于 cross attention，这个之前就有了，模型表现，吐出每一个字母时，关注范围从坐上到右下，很符合直觉。</p>
-<p>​    <img src="https://user-images.githubusercontent.com/35519242/143691448-726c68f0-1b6a-4576-aeef-dc8563459582.png" srcset="/img/loading.gif" lazyload></p>
+<p>​    <img src="https://user-images.githubusercontent.com/35519242/143691448-726c68f0-1b6a-4576-aeef-dc8563459582.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>cross attention，transformer里面，encoder和decoder都有多层，但是每层decoder都是使用encoder最后一层的输出的。但其实可以考虑用encoder非最后一层的输出来作为输入的。</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143691587-9d94ef3f-ed1c-4fd9-913e-9ceb5f841f8a.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143691587-9d94ef3f-ed1c-4fd9-913e-9ceb5f841f8a.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <h4 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h4><p>机被表示成一个one-hot的向量，只有机对应的那个维度为1，其余为0，这是正确答案。decoder的输出是一个distribution，是一个概率的分布，希望这个分布和one-hot越接近越好，所以计算cross entropy（交叉熵），希望这个值越小越好，该问题和分类很像。最后end也要计算，把5下图所示的5个交叉熵加起来，目标是最小化交叉熵和。</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143691835-33d8f346-9ff3-4ea3-900b-cc4b3ff3db88.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143691902-dcfb1131-c079-469f-ad76-c0d8aec23289.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143691835-33d8f346-9ff3-4ea3-900b-cc4b3ff3db88.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143691902-dcfb1131-c079-469f-ad76-c0d8aec23289.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>这里面还有一个 Teacher Forcing 的说法，如上图所示。</p>
 <h5 id="tips"><a href="#tips" class="headerlink" title="tips"></a><em>tips</em></h5><ul>
 <li><p><strong>Copy Mechanism</strong></p>
@@ -398,7 +395,7 @@
 <p>通常需要百万篇文章才够！所以之前做的病例生成项目，是无法使用端到端的模型来解决的。</p>
 <p>参考：</p>
 <p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1704.04368">文章：Get To The Point: Summarization with Pointer-Generator Networks</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?app=desktop&v=VdOyqNQ9aww&feature=youtu.be">视频：Pointer Network</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?app=desktop&amp;v=VdOyqNQ9aww&amp;feature=youtu.be">视频：Pointer Network</a></p>
 <p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1603.06393">文章：Incorporating Copying Mechanism in Sequence-to-Sequence Learning</a></p>
 <p><img src="https://user-images.githubusercontent.com/35519242/143695554-ec6510c8-88ae-4a7b-9749-62f5c1b809c4.png" srcset="/img/loading.gif" lazyload alt="Alt"></p>
 </li>
@@ -411,7 +408,7 @@
 <p>简单说就是不必找所有路径。参考 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1904.09751">The Curious Case of Neural Text Degeneration</a></p>
 </li>
 <li><p>opimizing evaluation metrics</p>
-<p>训练的时候是 cross attention，所以是每个单独算loss，但是BLUE score是整体的，如何在训练的时候也用BLUE score来评估呢？*<strong>当你不知道怎么样optmize的时候，可以考虑reinforcement learning（RL, 强化学习）</strong>，参考 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1511.06732">Sequence Level Training with Recurrent Neural Networks</a></p>
+<p>训练的时候是 cross attention，所以是每个单独算loss，但是BLUE score是整体的，如何在训练的时候也用BLUE score来评估呢？<strong>*当你不知道怎么样optmize的时候，可以考虑reinforcement learning（RL, 强化学习）</strong>，参考 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1511.06732">Sequence Level Training with Recurrent Neural Networks</a></p>
 <p><img src="https://user-images.githubusercontent.com/35519242/143727318-43464c9a-113b-4149-9f76-5556ee208ab0.png" srcset="/img/loading.gif" lazyload alt="Alt"></p>
 </li>
 <li><p>exposure bias</p>
@@ -433,18 +430,16 @@
 <li><p>维度问题，<em>Wq</em>,<em>Wk</em>,<em>Wv</em> 三个参数是共享的吗？确认下</p>
 <p>$W_{i}^{Q} \in \mathbb{R}^{d_{\text {model }} \times d_{k}}, W_{i}^{K} \in \mathbb{R}^{d_{\text {model }} \times d_{k}}, W_{i}^{V} \in \mathbb{R}^{d_{\text {model }} \times d_{v}}$</p>
 <p>但是大小还没解决。</p>
-<p>或许可以参考 <a target="_blank" rel="noopener" href="https://medium.com/dissecting-bert/dissecting-bert-part-1-d3c3d495cdb3#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ0ZTA2Y2ViMjJiMDFiZTU2YzIxM2M5ODU0MGFiNTYzYmZmNWE1OGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2MzgwOTEzMzYsImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjExNjM2ODg4ODU5ODA0NTkzMDMxMyIsImVtYWlsIjoidHpsbHh6QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhenAiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJuYW1lIjoiU3R1cGlkIEh1bWFuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdoLW5EeUVWSl9jdWxXRzVjaXFrUmxTWXBPNmJwa1BYWFJoNkx0cj1zOTYtYyIsImdpdmVuX25hbWUiOiJTdHVwaWQiLCJmYW1pbHlfbmFtZSI6Ikh1bWFuIiwiaWF0IjoxNjM4MDkxNjM2LCJleHAiOjE2MzgwOTUyMzYsImp0aSI6IjhmMTBhNDYxMjQzOTk5MGIyNmQ5YjI2NGQ0ZmU0M2M2Y2Y1ZGE1MDcifQ.IXG9hvowUXF3v61G-dKpQTwpEFQCbaGU4pbeMJA8xRBMzsrqJjW9dAlyWONLmV2ku8Kizm21knX4EtL7-KOq1mVy8D47taP0Cfx3sR9nWD2yUfk3KotijIiHRigb2-M5idmo1ZGhpD7nLavDn_1oSmxoRGAvDJUERjNUKMujCtsk_uNio1Qz6q9nUYJdMaQg9B0jPza7g3enipe1ekUQx5W7kn9m-g_xmY1zl3gJk8K1RK9WBZd1KzlR1Qn4vcASGT1PPO7f3AuODVw6SYNK9ZWlQxAf36_iq6uy4OPkFNdSCxaNDCZzbGgkntD0cS3JvJVpZHA6EK2mOE5wPyAEbg">链接1:Q，K，V进行了很详细的讲解</a>  [参考2](transformer中为什么使用不同的K 和 Q， 为什么不能使用同一个值？ - TniL的回答 - 知乎 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/319339652/answer/1617078433">https://www.zhihu.com/question/319339652/answer/1617078433</a>)</p>
+<p>或许可以参考 <a target="_blank" rel="noopener" href="https://medium.com/dissecting-bert/dissecting-bert-part-1-d3c3d495cdb3#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImQ0ZTA2Y2ViMjJiMDFiZTU2YzIxM2M5ODU0MGFiNTYzYmZmNWE1OGMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2MzgwOTEzMzYsImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjExNjM2ODg4ODU5ODA0NTkzMDMxMyIsImVtYWlsIjoidHpsbHh6QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhenAiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJuYW1lIjoiU3R1cGlkIEh1bWFuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdoLW5EeUVWSl9jdWxXRzVjaXFrUmxTWXBPNmJwa1BYWFJoNkx0cj1zOTYtYyIsImdpdmVuX25hbWUiOiJTdHVwaWQiLCJmYW1pbHlfbmFtZSI6Ikh1bWFuIiwiaWF0IjoxNjM4MDkxNjM2LCJleHAiOjE2MzgwOTUyMzYsImp0aSI6IjhmMTBhNDYxMjQzOTk5MGIyNmQ5YjI2NGQ0ZmU0M2M2Y2Y1ZGE1MDcifQ.IXG9hvowUXF3v61G-dKpQTwpEFQCbaGU4pbeMJA8xRBMzsrqJjW9dAlyWONLmV2ku8Kizm21knX4EtL7-KOq1mVy8D47taP0Cfx3sR9nWD2yUfk3KotijIiHRigb2-M5idmo1ZGhpD7nLavDn_1oSmxoRGAvDJUERjNUKMujCtsk_uNio1Qz6q9nUYJdMaQg9B0jPza7g3enipe1ekUQx5W7kn9m-g_xmY1zl3gJk8K1RK9WBZd1KzlR1Qn4vcASGT1PPO7f3AuODVw6SYNK9ZWlQxAf36_iq6uy4OPkFNdSCxaNDCZzbGgkntD0cS3JvJVpZHA6EK2mOE5wPyAEbg">链接1:Q，K，V进行了很详细的讲解</a>  <a href="transformer中为什么使用不同的K 和 Q， 为什么不能使用同一个值？ - TniL的回答 - 知乎 https://www.zhihu.com/question/319339652/answer/1617078433">参考2</a></p>
 </li>
 <li><p>Positional Encoding</p>
 </li>
-<li><p>embedding 层的参数需要在训练中学习吗</p>
-</li>
+<li>embedding 层的参数需要在训练中学习吗</li>
 <li><p>里面的矩阵操作，具体顺序，维度变化。</p>
 </li>
 <li><p>线性代数挖个坑吧，以后补一下，有很好的课程的。</p>
 </li>
-<li><p>残差 —— <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/80226180?utm_source=wechat_session">https://zhuanlan.zhihu.com/p/80226180?utm_source=wechat_session</a></p>
-</li>
+<li>残差 —— <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/80226180?utm_source=wechat_session">https://zhuanlan.zhihu.com/p/80226180?utm_source=wechat_session</a></li>
 </ul>
 <h2 id="补充Tips"><a href="#补充Tips" class="headerlink" title="补充Tips"></a><em>补充Tips</em></h2><ul>
 <li><p>矩阵的点乘</p>
@@ -457,12 +452,12 @@
 <p>Transformer 模型里面涉及两种 mask，分别是 padding mask 和 sequence mask。</p>
 <p><strong>padding mask</strong>：每个批次输入序列长度是不一样的也就是说，我们要对输入序列进行对齐。具体来说，就是给在较短的序列后面填充 0。但是如果输入的序列太长，则是截取左边的内容，把多余的直接舍弃。因为这些填充的位置，其实是没什么意义的，所以我们的attention机制不应该把注意力放在这些位置上，所以我们需要进行一些处理。具体的做法是，把这些位置的值加上一个非常大的负数(负无穷)，这样的话，经过 softmax，这些位置的概率就会接近0。</p>
 <p><strong>Sequence mask</strong>：time_step 为 t 的时刻，我们的解码输出应该只能依赖于 t 时刻之前的输出，而不能依赖 t 之后的输出。<strong>产生一个上三角矩阵，上三角的值全为0。把这个矩阵作用在每一个序列上，就可以达到我们的目的</strong>。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-4d82d55512d23ca63a42ac5b85b8c494_720w.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://pic1.zhimg.com/80/v2-4d82d55512d23ca63a42ac5b85b8c494_720w.jpg" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>对于 decoder 的 self-attention，里面使用到的 scaled dot-product attention，同时需要padding mask 和 sequence mask 作为 attn_mask，具体实现就是两个mask相加作为attn_mask。其他情况，attn_mask 一律等于 padding mask。<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/311156298"><strong>参考</strong></a></p>
 </li>
 <li><p><strong>Linear &amp; Softmax</strong></p>
 <p>Decoder最后是一个线性变换和softmax层。解码组件最后会输出一个实数向量。我们如何把浮点数变成一个单词？这便是线性变换层要做的工作，它之后就是Softmax层。<br>线性变换层是一个简单的全连接神经网络，它可以<strong>把解码组件产生的向量投射到一个比它大得多的、被称作对数几率（logits）的向量里</strong>。不妨假设我们的模型从训练集中学习一万个不同的英语单词（我们模型的“输出词表”）。因此对数几率向量为一万个单元格长度的向量——每个单元格对应某一个单词的分数（<strong>相当于做vocaburary_size大小的分类</strong>）。接下来的Softmax 层便会把那些分数变成概率（都为正数、上限1.0）。<strong>概率最高的单元格被选中，并且它对应的单词被作为这个时间步的输出。</strong>  <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/311156298"><strong>参考</strong></a></p>
-<p><img src="https://pic2.zhimg.com/80/v2-5ed7b1947af14225715fd25751133855_720w.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://pic2.zhimg.com/80/v2-5ed7b1947af14225715fd25751133855_720w.jpg" srcset="/img/loading.gif" lazyload alt=""></p>
 </li>
 </ul>
 <h2 id="常见面试问答"><a href="#常见面试问答" class="headerlink" title="常见面试问答"></a>常见面试问答</h2><ul>
@@ -472,10 +467,10 @@
 <p>为了提升模型的拟合能力，矩阵<em>Wq</em>,<em>Wk</em>,<em>Wv</em> 都是可以训练的，起到一个缓冲的效果。</p>
 </li>
 <li><p>$\sqrt{d_{k}}$ 的意义</p>
-<p><img src="https://user-images.githubusercontent.com/35519242/143764642-ca5af1d2-3454-4ea1-92aa-ccd8fd90898a.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://user-images.githubusercontent.com/35519242/143764642-ca5af1d2-3454-4ea1-92aa-ccd8fd90898a.png" srcset="/img/loading.gif" lazyload alt=""></p>
 </li>
 <li><p><strong>Multi-Head Attention</strong> 怎么操作的（腾讯ieg游戏广告部门问到，答错了，一面挂）</p>
-<p>通过权重矩阵 <img src="https://www.zhihu.com/equation?tex=W_i%5EQ,W_i%5Ek,W_i%5EV" srcset="/img/loading.gif" lazyload alt="[公式]"> 将<img src="https://www.zhihu.com/equation?tex=Q,K,V" srcset="/img/loading.gif" lazyload alt="[公式]"> 分割，每个头分别计算 single self-attention，因为权重矩阵 <img src="https://www.zhihu.com/equation?tex=W_i%5EQ,W_i%5Ek,W_i%5EV" srcset="/img/loading.gif" lazyload alt="[公式]"> 各不相同， <img src="https://www.zhihu.com/equation?tex=QW_i%5EQ,KW_i%5Ek,VW_i%5EV" srcset="/img/loading.gif" lazyload alt="[公式]">的结果各不相同，因此我们说每个头的关注点各有侧重。最后，将每个头计算出的 single self-attention进行<strong>concat</strong>，通过总的权重矩阵$W^{O}$决定对每个头的关注程度，从而能够做到在不同语境下对相同句子进行不同理解。<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/311156298"><strong>参考</strong></a></p>
+<p>通过权重矩阵 <img src="https://www.zhihu.com/equation?tex=W_i%5EQ%2CW_i%5Ek%2CW_i%5EV" srcset="/img/loading.gif" lazyload alt="[公式]"> 将<img src="https://www.zhihu.com/equation?tex=Q%2CK%2CV" srcset="/img/loading.gif" lazyload alt="[公式]"> 分割，每个头分别计算 single self-attention，因为权重矩阵 <img src="https://www.zhihu.com/equation?tex=W_i%5EQ%2CW_i%5Ek%2CW_i%5EV" srcset="/img/loading.gif" lazyload alt="[公式]"> 各不相同， <img src="https://www.zhihu.com/equation?tex=QW_i%5EQ%2CKW_i%5Ek%2CVW_i%5EV" srcset="/img/loading.gif" lazyload alt="[公式]">的结果各不相同，因此我们说每个头的关注点各有侧重。最后，将每个头计算出的 single self-attention进行<strong>concat</strong>，通过总的权重矩阵$W^{O}$决定对每个头的关注程度，从而能够做到在不同语境下对相同句子进行不同理解。<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/311156298"><strong>参考</strong></a></p>
 </li>
 <li><p>softmax的维度</p>
 </li>
